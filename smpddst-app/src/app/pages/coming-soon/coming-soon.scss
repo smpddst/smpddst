@@ -1,0 +1,252 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.coming-soon {
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+
+  color: var(--color-text);
+
+  background:
+    radial-gradient(
+      ellipse 55% 42% at 50% 31%,
+      rgb(255 255 255 / 0.7) 0%,
+      rgb(255 244 220 / 0.35) 45%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to bottom,
+      #fff8ed 0%,
+      #fff5e8 22%,
+      #f9d39a 43%,
+      #f28c28 61%,
+      #c94a18 74%,
+      #8b1e12 87%,
+      #5c0f08 100%
+    );
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    width: min(44rem, calc(100% - 2.5rem));
+
+    padding-top: clamp(4rem, 8vh, 6rem);
+
+    text-align: center;
+  }
+
+  &__logo {
+    display: block;
+
+    width: clamp(10rem, 17vw, 12.5rem);
+    height: clamp(10rem, 17vw, 12.5rem);
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    filter:
+      drop-shadow(0 8px 14px rgb(92 15 8 / 0.16));
+  }
+
+  &__kicker {
+    margin: clamp(1.4rem, 3vh, 2rem) 0 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 600;
+
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary-dark);
+  }
+
+  &__subkicker {
+    margin: 0.5rem 0 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+    font-weight: 500;
+
+    line-height: 1.4;
+    letter-spacing: 0.4em;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(17rem, 65%);
+    margin: 1.5rem auto 1.75rem;
+
+    gap: 0.7rem;
+
+    span {
+      flex: 1;
+      height: 1px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-secondary)
+      );
+
+      &:last-child {
+        background: linear-gradient(
+          90deg,
+          var(--color-secondary),
+          transparent
+        );
+      }
+    }
+
+    i {
+      width: 8px;
+      height: 8px;
+
+      flex: 0 0 auto;
+
+      transform: rotate(45deg);
+
+      background: var(--color-secondary);
+
+      box-shadow:
+        0 0 0 4px rgb(212 160 23 / 0.14);
+    }
+  }
+
+  h1 {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+
+    line-height: 1.1;
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color: var(--color-primary-dark);
+
+    text-shadow:
+      0 1px 0 rgb(255 248 237 / 0.25);
+  }
+
+  &__tagline {
+    margin: 1rem 0 0;
+
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-style: italic;
+
+    letter-spacing: 0.06em;
+
+    color: rgb(92 15 8 / 0.72);
+  }
+
+  /*
+   * Simple decorative transition at the bottom.
+   * No complicated SVG required.
+   */
+  &__ornament {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(28rem, 70%);
+    gap: 0.8rem;
+
+    transform: translateX(-50%);
+
+    padding-bottom: 1.5rem;
+
+    span {
+      flex: 1;
+      height: 1px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgb(212 160 23 / 0.7)
+      );
+
+      &:last-child {
+        background: linear-gradient(
+          90deg,
+          rgb(212 160 23 / 0.7),
+          transparent
+        );
+      }
+    }
+
+    &-center {
+      flex: 0 0 auto !important;
+
+      width: 9px;
+      height: 9px !important;
+
+      transform: rotate(45deg);
+
+      background: var(--color-secondary) !important;
+
+      box-shadow:
+        0 0 0 5px rgb(212 160 23 / 0.1);
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .coming-soon {
+    &__content {
+      width: min(100% - 2rem, 36rem);
+      padding-top: 3.5rem;
+    }
+
+    &__logo {
+      width: 9.5rem;
+      height: 9.5rem;
+    }
+
+    &__kicker {
+      letter-spacing: 0.12em;
+    }
+
+    &__subkicker {
+      letter-spacing: 0.25em;
+    }
+
+    &__divider {
+      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      letter-spacing: 0.12em;
+    }
+  }
+}
